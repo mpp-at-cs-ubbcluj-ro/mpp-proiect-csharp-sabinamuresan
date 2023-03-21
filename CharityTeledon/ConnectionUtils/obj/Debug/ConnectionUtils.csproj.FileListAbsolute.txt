@@ -1,0 +1,16 @@
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\obj\Debug\ConnectionUtils.csproj.AssemblyReference.cache
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\obj\Debug\ConnectionUtils.csproj.CoreCompileInputs.cache
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\ConnectionUtils.dll.config
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\ConnectionUtils.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\ConnectionUtils.pdb
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\EntityFramework.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\System.Data.SQLite.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\EntityFramework.xml
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\bin\Debug\System.Data.SQLite.xml
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\obj\Debug\ConnectionUtils.csproj.CopyComplete
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\obj\Debug\ConnectionUtils.dll
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\ConnectionUtils\obj\Debug\ConnectionUtils.pdb
