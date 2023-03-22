@@ -1,0 +1,16 @@
+2023-03-22 08:33:53,554 [1] INFO CaseDbRepository - Creating CaseDbRepository
+2023-03-22 08:33:53,562 [1] INFO DonationDbRepository - Creating DonationDbRepository 
+2023-03-22 08:33:53,562 [1] INFO DonorDbRepository - Creating DonorDbRepository 
+2023-03-22 08:33:53,562 [1] INFO VolunteerDbRepository - Creating VolunteerDbRepository 
+2023-03-22 08:33:53,567 [1] INFO CaseDbRepository - Entering GetAll 
+2023-03-22 08:33:53,632 [1] INFO CaseDbRepository - Exiting GetAll
+2023-03-22 08:33:53,634 [1] INFO CaseDbRepository - Entering findOne with value 1
+2023-03-22 08:33:53,639 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case ANOHELP,3866,5}
+2023-03-22 08:33:53,640 [1] INFO DonationDbRepository - Entering Add value {CharityTeledon.model.Donation 120,2,3}
+2023-03-22 08:33:53,649 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 120,2,3}
+2023-03-22 08:33:53,651 [1] INFO DonorDbRepository - Entering Add value {CharityTeledon.model.Donor Maria Turc,Rodnei 36,0756221395}
+2023-03-22 08:33:53,658 [1] INFO DonorDbRepository - Succesfully added value {CharityTeledon.model.Donor Maria Turc,Rodnei 36,0756221395}
+2023-03-22 08:33:53,658 [1] INFO CaseDbRepository - Entering findOne with value 1
+2023-03-22 08:33:53,659 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case ANOHELP,3866,5}
+2023-03-22 08:33:53,660 [1] INFO DonorDbRepository - Entering GetDonorsForCase for value {CharityTeledon.model.Case ANOHELP,3866,5}
+2023-03-22 08:33:53,661 [1] INFO DonorDbRepository - Exiting GetDonorsForCase

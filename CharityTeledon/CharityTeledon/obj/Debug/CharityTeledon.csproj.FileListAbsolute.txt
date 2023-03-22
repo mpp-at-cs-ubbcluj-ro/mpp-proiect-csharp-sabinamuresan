@@ -20,3 +20,4 @@ C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\Cha
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\bin\Debug\log4net.xml
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\bin\Debug\System.Data.SQLite.xml
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.csproj.CopyComplete
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\bin\Debug\log4net.config
