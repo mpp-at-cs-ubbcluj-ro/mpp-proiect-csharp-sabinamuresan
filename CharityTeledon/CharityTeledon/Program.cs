@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using CharityTeledon.model;
 using CharityTeledon.repository;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using CharityTeledon.forms;
+using CharityTeledon.service;
 
 namespace CharityTeledon
 {
-    internal class Program
+    public partial class Program
     {
         public static void Main(string[] args)
         {
@@ -19,9 +23,10 @@ namespace CharityTeledon
             DonationDbRepository donationRepository = new DonationDbRepository(props);
             DonorDbRepository donorRepository = new DonorDbRepository(props);
             VolunteerDbRepository volunteerRepository = new VolunteerDbRepository(props);
+            Service service = new Service(caseRepository, donationRepository, donorRepository, volunteerRepository);
         
             //Tests
-            foreach (var c in caseRepository.GetAll())
+            /*foreach (var c in caseRepository.GetAll())
             {
                 Console.WriteLine(c);
             }
@@ -36,7 +41,9 @@ namespace CharityTeledon
             foreach (var d in donorRepository.GetDonorsForCase(caseRepository.FindOne(1)))
             {
                 Console.WriteLine(d);
-            }
+            }*/
+
+            Application.Run(new LoginForm(service));
 
         }
         

@@ -25,7 +25,28 @@ namespace CharityTeledon.repository
 
         public IEnumerable<Donor> GetAll()
         {
-            throw new NotImplementedException();
+            log.Info("Entering GetAll ");
+            IDbConnection con = DBUtils.getConnection(props);
+            IList<Donor> donors = new List<Donor>();
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "SELECT * FROM Donors";
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    while (dataR.Read())
+                    {
+                        int id = dataR.GetInt32(0);
+                        String name = dataR.GetString(1);
+                        String address = dataR.GetString(2);
+                        String phoneNumber = dataR.GetString(3);
+                        Donor donor = new Donor(id, name, address, phoneNumber);
+                        donors.Add(donor);
+                    }
+                }
+            }
+            log.Info("Exiting GetAll");
+            return donors;
         }
 
         public Donor Add(Donor entity)
@@ -100,6 +121,38 @@ namespace CharityTeledon.repository
             }
             log.Info("Exiting GetDonorsForCase");
             return donors;
+        }
+
+        public Donor FindByName(string name)
+        {
+            log.InfoFormat("Entering findByName with value {0}", name);
+            IDbConnection con = DBUtils.getConnection(props);
+
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "SELECT * FROM Donors WHERE name=@name";
+                IDbDataParameter paramName = comm.CreateParameter();
+                paramName.ParameterName = "@name";
+                paramName.Value = name;
+                comm.Parameters.Add(paramName);
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    if (dataR.Read())
+                    {
+                        int id = dataR.GetInt32(0);
+                        String donorName = dataR.GetString(1);
+                        String address = dataR.GetString(2);
+                        String phoneNumber = dataR.GetString(3);
+                        Donor donor = new Donor(id, donorName, address, phoneNumber);
+                        log.InfoFormat("Exiting findByName with value {0}", donor);
+                        return donor;
+                    }
+                }
+            }
+
+            log.InfoFormat("Exiting findByName with value {0}", null);
+            return null;
         }
     }
 }

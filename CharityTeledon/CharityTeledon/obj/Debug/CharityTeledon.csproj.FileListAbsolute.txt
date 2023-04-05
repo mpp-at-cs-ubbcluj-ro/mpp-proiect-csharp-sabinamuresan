@@ -21,3 +21,7 @@ C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\Cha
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\bin\Debug\System.Data.SQLite.xml
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.csproj.CopyComplete
 C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\bin\Debug\log4net.config
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.Program.resources
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.csproj.GenerateResource.cache
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.forms.HomeForm.resources
+C:\Users\mures\RiderProjects\mpp-proiect-csharp-sabinamuresan\CharityTeledon\CharityTeledon\obj\Debug\CharityTeledon.forms.LoginForm.resources

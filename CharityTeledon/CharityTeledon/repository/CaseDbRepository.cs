@@ -88,5 +88,31 @@ namespace CharityTeledon.repository
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateSum(int id, float sum)
+        {
+            log.Info("Entering updateSum ");
+            IDbConnection con = DBUtils.getConnection(props);
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "UPDATE Cases SET sum = @sum WHERE id=@id";
+
+                var paramSum = comm.CreateParameter();
+                paramSum.ParameterName = "@sum";
+                paramSum.Value = sum;
+                comm.Parameters.Add(paramSum);
+            
+                var paramId = comm.CreateParameter();
+                paramId.ParameterName = "@id";
+                paramId.Value = id;
+                comm.Parameters.Add(paramId);
+
+                var result = comm.ExecuteNonQuery();
+                if(result == 0)
+                    log.InfoFormat("Case with id {0} not updated!",id);
+                else log.InfoFormat("Case with id {0} updated successfully!", id);
+            }
+
+        }
     }
 }
