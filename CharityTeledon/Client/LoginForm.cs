@@ -2,16 +2,16 @@
 using System.Threading;
 using System.Windows.Forms;
 using CharityTeledon.model;
-using CharityTeledon.service;
+using Client;
 
 namespace CharityTeledon.forms
 {
     public class LoginForm : Form
     {
-        private Service _service;
-        public LoginForm(Service service)
+        private ClientController ctrl;
+        public LoginForm(ClientController ctrl)
         {
-            _service = service;
+            this.ctrl = ctrl;
             InitializeComponent();
         }
 
@@ -121,7 +121,7 @@ namespace CharityTeledon.forms
                 MessageBox.Show("Please enter the password!");
             }
 
-            Volunteer volunteer = _service.FindVolunteerAccount(username, password);
+            Volunteer volunteer = ctrl.Login(username, password);
             if (volunteer == null)
             {
                 MessageBox.Show("Username or Password is wrong!");
@@ -129,7 +129,7 @@ namespace CharityTeledon.forms
             else
             {
                 this.Hide();
-                HomeForm homeForm = new HomeForm(_service);
+                HomeForm homeForm = new HomeForm(ctrl);
                 homeForm.Show();
             }
         }

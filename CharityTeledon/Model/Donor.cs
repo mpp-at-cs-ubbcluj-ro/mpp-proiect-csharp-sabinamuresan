@@ -12,13 +12,20 @@ namespace CharityTeledon.model
         public string DonorAddress { get; set; }
         public string DonorPhoneNumber { get; set; }
 
-        public Donor(int id, string donorName, string donorAddress, string donorPhoneNumber): base(id)
+        public Donor(int id, string donorName, string donorAddress, string donorPhoneNumber)
         {
+            this.Id = id;
             this.DonorName = donorName;
             this.DonorAddress = donorAddress;
             this.DonorPhoneNumber = donorPhoneNumber;
         }
         
+        public Donor(string donorName, string donorAddress, string donorPhoneNumber)
+        {
+            this.DonorName = donorName;
+            this.DonorAddress = donorAddress;
+            this.DonorPhoneNumber = donorPhoneNumber;
+        }
         public override string ToString()
         {
             return "{" + base.ToString() + " " + DonorName + "," + DonorAddress + "," + DonorPhoneNumber + "}";

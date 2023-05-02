@@ -11,7 +11,14 @@ namespace CharityTeledon.model
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public Volunteer(int id, string username, string password): base(id)
+        public Volunteer(int id, string username, string password)
+        {
+            this.Id = id;
+            this.Username = username;   
+            this.Password = password;
+        }
+        
+        public Volunteer(string username, string password)
         {
             this.Username = username;   
             this.Password = password;

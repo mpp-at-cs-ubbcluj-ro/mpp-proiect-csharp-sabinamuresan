@@ -1,22 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using CharityTeledon.model;
-using CharityTeledon.service;
+using Client;
 
 namespace CharityTeledon.forms
 {
     public class HomeForm : Form
     {
-        private Service _service;
-        
+        private ClientController ctrl;
+
         BindingSource bsCases = new BindingSource();
         BindingSource bsDonors = new BindingSource();
-        public HomeForm(Service service)
+        public HomeForm(ClientController ctrl)
         {
-            _service = service;
+            this.ctrl = ctrl;
             InitializeComponent();
             initializeCasesList();
+            this.ctrl.updateEvent += userUpdate;
         }
+        
+        public void userUpdate(object sender, TeledonUserEventArgs e)
+        {
+            if (e.UserEventType==TeledonUserEvent.UpdatedCase)
+            {
+                Console.WriteLine("Update event for UpdatedCase in HomeForm");
+                BeginInvoke(new UpdateListBoxCallback(initializeCasesList), new object[] {});
+
+            }
+            if (e.UserEventType == TeledonUserEvent.AddedDonor)
+            {
+                Console.WriteLine("Update event for AddedDonor in HomeForm");
+                BeginInvoke( new UpdateListBoxCallback(initializeDonorsList), new object[] {});
+            }
+        }
+        public delegate void UpdateListBoxCallback();
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -25,6 +43,7 @@ namespace CharityTeledon.forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.loggedUser = new System.Windows.Forms.Label();
             this.labelDonors = new System.Windows.Forms.Label();
             this.dataGridViewDonors = new System.Windows.Forms.DataGridView();
             this.labelSum = new System.Windows.Forms.Label();
@@ -41,6 +60,7 @@ namespace CharityTeledon.forms
             this.buttonNewDonation = new System.Windows.Forms.Button();
             this.dataGridViewCases = new System.Windows.Forms.DataGridView();
             this.labelCases = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDonors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCases)).BeginInit();
@@ -48,6 +68,8 @@ namespace CharityTeledon.forms
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.logoutButton);
+            this.panel1.Controls.Add(this.loggedUser);
             this.panel1.Controls.Add(this.labelDonors);
             this.panel1.Controls.Add(this.dataGridViewDonors);
             this.panel1.Controls.Add(this.labelSum);
@@ -66,13 +88,22 @@ namespace CharityTeledon.forms
             this.panel1.Controls.Add(this.labelCases);
             this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(975, 546);
+            this.panel1.Size = new System.Drawing.Size(975, 631);
             this.panel1.TabIndex = 0;
+            // 
+            // loggedUser
+            // 
+            this.loggedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loggedUser.Location = new System.Drawing.Point(600, 10);
+            this.loggedUser.Name = "loggedUser";
+            this.loggedUser.Size = new System.Drawing.Size(239, 31);
+            this.loggedUser.TabIndex = 17;
+            this.loggedUser.Text = ctrl.getLoggedUser().Username;
             // 
             // labelDonors
             // 
             this.labelDonors.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDonors.Location = new System.Drawing.Point(509, 0);
+            this.labelDonors.Location = new System.Drawing.Point(508, 84);
             this.labelDonors.Name = "labelDonors";
             this.labelDonors.Size = new System.Drawing.Size(413, 37);
             this.labelDonors.TabIndex = 16;
@@ -83,7 +114,7 @@ namespace CharityTeledon.forms
             // 
             this.dataGridViewDonors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewDonors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDonors.Location = new System.Drawing.Point(507, 90);
+            this.dataGridViewDonors.Location = new System.Drawing.Point(506, 174);
             this.dataGridViewDonors.Name = "dataGridViewDonors";
             this.dataGridViewDonors.RowTemplate.Height = 28;
             this.dataGridViewDonors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -94,7 +125,7 @@ namespace CharityTeledon.forms
             // 
             // labelSum
             // 
-            this.labelSum.Location = new System.Drawing.Point(509, 428);
+            this.labelSum.Location = new System.Drawing.Point(508, 512);
             this.labelSum.Name = "labelSum";
             this.labelSum.Size = new System.Drawing.Size(151, 21);
             this.labelSum.TabIndex = 14;
@@ -103,7 +134,7 @@ namespace CharityTeledon.forms
             // 
             // labelPhone
             // 
-            this.labelPhone.Location = new System.Drawing.Point(509, 380);
+            this.labelPhone.Location = new System.Drawing.Point(508, 464);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(176, 21);
             this.labelPhone.TabIndex = 13;
@@ -112,7 +143,7 @@ namespace CharityTeledon.forms
             // 
             // labelAddress
             // 
-            this.labelAddress.Location = new System.Drawing.Point(509, 335);
+            this.labelAddress.Location = new System.Drawing.Point(508, 419);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(163, 22);
             this.labelAddress.TabIndex = 12;
@@ -121,7 +152,7 @@ namespace CharityTeledon.forms
             // 
             // labelName
             // 
-            this.labelName.Location = new System.Drawing.Point(509, 288);
+            this.labelName.Location = new System.Drawing.Point(508, 372);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(142, 25);
             this.labelName.TabIndex = 11;
@@ -130,7 +161,7 @@ namespace CharityTeledon.forms
             // 
             // labelCase
             // 
-            this.labelCase.Location = new System.Drawing.Point(509, 242);
+            this.labelCase.Location = new System.Drawing.Point(508, 326);
             this.labelCase.Name = "labelCase";
             this.labelCase.Size = new System.Drawing.Size(147, 32);
             this.labelCase.TabIndex = 10;
@@ -139,7 +170,7 @@ namespace CharityTeledon.forms
             // 
             // textBoxCase
             // 
-            this.textBoxCase.Location = new System.Drawing.Point(708, 239);
+            this.textBoxCase.Location = new System.Drawing.Point(707, 323);
             this.textBoxCase.Name = "textBoxCase";
             this.textBoxCase.ReadOnly = true;
             this.textBoxCase.Size = new System.Drawing.Size(215, 26);
@@ -148,7 +179,7 @@ namespace CharityTeledon.forms
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(708, 288);
+            this.textBoxName.Location = new System.Drawing.Point(707, 372);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(215, 26);
             this.textBoxName.TabIndex = 8;
@@ -156,7 +187,7 @@ namespace CharityTeledon.forms
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(708, 335);
+            this.textBoxAddress.Location = new System.Drawing.Point(707, 419);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(215, 26);
             this.textBoxAddress.TabIndex = 7;
@@ -164,7 +195,7 @@ namespace CharityTeledon.forms
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(708, 380);
+            this.textBoxPhone.Location = new System.Drawing.Point(707, 464);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(215, 26);
             this.textBoxPhone.TabIndex = 6;
@@ -172,7 +203,7 @@ namespace CharityTeledon.forms
             // 
             // textBoxSum
             // 
-            this.textBoxSum.Location = new System.Drawing.Point(708, 425);
+            this.textBoxSum.Location = new System.Drawing.Point(707, 509);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.Size = new System.Drawing.Size(215, 26);
             this.textBoxSum.TabIndex = 5;
@@ -181,7 +212,7 @@ namespace CharityTeledon.forms
             // buttonAddDonation
             // 
             this.buttonAddDonation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonAddDonation.Location = new System.Drawing.Point(636, 482);
+            this.buttonAddDonation.Location = new System.Drawing.Point(635, 566);
             this.buttonAddDonation.Name = "buttonAddDonation";
             this.buttonAddDonation.Size = new System.Drawing.Size(205, 38);
             this.buttonAddDonation.TabIndex = 4;
@@ -193,7 +224,7 @@ namespace CharityTeledon.forms
             // buttonNewDonation
             // 
             this.buttonNewDonation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonNewDonation.Location = new System.Drawing.Point(90, 482);
+            this.buttonNewDonation.Location = new System.Drawing.Point(89, 566);
             this.buttonNewDonation.Name = "buttonNewDonation";
             this.buttonNewDonation.Size = new System.Drawing.Size(205, 38);
             this.buttonNewDonation.TabIndex = 3;
@@ -204,7 +235,7 @@ namespace CharityTeledon.forms
             // dataGridViewCases
             // 
             this.dataGridViewCases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCases.Location = new System.Drawing.Point(25, 52);
+            this.dataGridViewCases.Location = new System.Drawing.Point(24, 136);
             this.dataGridViewCases.Name = "dataGridViewCases";
             this.dataGridViewCases.RowTemplate.Height = 28;
             this.dataGridViewCases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -215,16 +246,26 @@ namespace CharityTeledon.forms
             // labelCases
             // 
             this.labelCases.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCases.Location = new System.Drawing.Point(25, 0);
+            this.labelCases.Location = new System.Drawing.Point(24, 84);
             this.labelCases.Name = "labelCases";
             this.labelCases.Size = new System.Drawing.Size(342, 37);
             this.labelCases.TabIndex = 1;
             this.labelCases.Text = "Cases";
             this.labelCases.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(859, 6);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(105, 36);
+            this.logoutButton.TabIndex = 18;
+            this.logoutButton.Text = "LogOut";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // HomeForm
             // 
-            this.ClientSize = new System.Drawing.Size(976, 544);
+            this.ClientSize = new System.Drawing.Size(976, 628);
             this.Controls.Add(this.panel1);
             this.Name = "HomeForm";
             this.panel1.ResumeLayout(false);
@@ -233,6 +274,10 @@ namespace CharityTeledon.forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCases)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button logoutButton;
+
+        private System.Windows.Forms.Label loggedUser;
 
         private System.Windows.Forms.Label labelDonors;
 
@@ -260,17 +305,17 @@ namespace CharityTeledon.forms
 
         private void initializeCasesList()
         {
-            bsCases.DataSource = _service.GetAllCases();
+            bsCases.DataSource = ctrl.GetAllCases();
             dataGridViewCases.DataSource = bsCases;
-            dataGridViewCases.Columns["Id"].Visible = false;
+            dataGridViewCases.Columns["Id"].Visible = true;
             dataGridViewCases.ClearSelection();
         }
         
         private void initializeDonorsList()
         {
-            bsDonors.DataSource = _service.GetAllDonors();
+            bsDonors.DataSource = ctrl.GetAllDonors();
             dataGridViewDonors.DataSource = bsDonors;
-            dataGridViewDonors.Columns["Id"].Visible = false;
+            dataGridViewDonors.Columns["Id"].Visible = true;
             dataGridViewDonors.ClearSelection();
         }
 
@@ -320,24 +365,37 @@ namespace CharityTeledon.forms
             string donorPhoneNumber = textBoxPhone.Text;
             float sum = float.Parse(textBoxSum.Text);
 
-            Donor donor = _service.FindDonorByName(donorName);
+            Donor donor = ctrl.FindDonorByName(donorName);
             int donorId;
             
             if (donor == null)
             {
-                Donor newDonor = new Donor(0, donorName, donorAddress, donorPhoneNumber);
-                _service.AddDonor(newDonor);
-                Donor addedDonor = _service.FindDonorByName(donorName);
+                Console.WriteLine("Donor is not in database");
+                Donor newDonor = new Donor(donorName, donorAddress, donorPhoneNumber);
+                ctrl.AddDonor(newDonor);
+                Donor addedDonor = ctrl.FindDonorByName(donorName);
                 donorId = addedDonor.Id;
+                //initializeDonorsList();
             }
             else
             {
+                Console.WriteLine("Donor is in database");
                 donorId = donor.Id;
             }
 
-            Donation donation = new Donation(0, sum, idCase, donorId);
-            _service.AddDonation(donation);
-            initializeCasesList();
+            Donation donation = new Donation(sum, idCase, donorId);
+            Console.WriteLine("Created new donation");
+            ctrl.AddDonation(donation);
+            Console.WriteLine("Added new donation");
+            //initializeCasesList();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            ctrl.Logout(ctrl.getLoggedUser());
+            this.Hide();
+            LoginForm loginForm = new LoginForm(ctrl);
+            loginForm.Show();
         }
     }
 }

@@ -65,50 +65,14 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="forms\HomeForm.cs" />
-        <Compile Include="forms\LoginForm.cs" />
-        <Compile Include="model\Case.cs" />
-        <Compile Include="model\Donation.cs" />
-        <Compile Include="model\Donor.cs" />
-        <Compile Include="model\Entity.cs" />
-        <Compile Include="model\Volunteer.cs" />
-        <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="repository\CaseDbRepository.cs" />
-        <Compile Include="repository\DBUtils.cs" />
-        <Compile Include="repository\DonationDbRepository.cs" />
-        <Compile Include="repository\DonorDbRepository.cs" />
-        <Compile Include="repository\ICaseRepository.cs" />
-        <Compile Include="repository\IDonationRepository.cs" />
-        <Compile Include="repository\IDonorRepository.cs" />
-        <Compile Include="repository\IRepository.cs" />
-        <Compile Include="repository\IVolunteerRepository.cs" />
-        <Compile Include="repository\VolunteerDbRepository.cs" />
         <Compile Include="service\Service.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="App.config" />
-      <None Include="log4net.config">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\ConnectionUtils\ConnectionUtils.csproj">
         <Project>{7644d457-066f-44ea-8f54-5bf53abec667}</Project>
         <Name>ConnectionUtils</Name>
       </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="forms\HomeForm.resx">
-        <DependentUpon>HomeForm.cs</DependentUpon>
-      </EmbeddedResource>
-      <EmbeddedResource Include="forms\LoginForm.resx">
-        <DependentUpon>LoginForm.cs</DependentUpon>
-      </EmbeddedResource>
-      <EmbeddedResource Include="Program.resx">
-        <DependentUpon>Program.cs</DependentUpon>
-      </EmbeddedResource>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -828,3 +828,73 @@
 2023-04-05 08:05:59,875 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 200,2,25}
 2023-04-05 08:05:59,875 [1] INFO CaseDbRepository - Entering GetAll 
 2023-04-05 08:05:59,875 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:10:08,740 [1] INFO CaseDbRepository - Creating CaseDbRepository
+2023-04-05 08:10:08,748 [1] INFO DonationDbRepository - Creating DonationDbRepository 
+2023-04-05 08:10:08,749 [1] INFO DonorDbRepository - Creating DonorDbRepository 
+2023-04-05 08:10:08,749 [1] INFO VolunteerDbRepository - Creating VolunteerDbRepository 
+2023-04-05 08:10:15,366 [1] INFO VolunteerDbRepository - Entering findVolunteerAccount with username sabinamuresan
+2023-04-05 08:10:15,436 [1] INFO VolunteerDbRepository - Exiting findVolunteerAccount with value CharityTeledon.model.Volunteer
+2023-04-05 08:10:15,456 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:10:15,457 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:10:18,289 [1] INFO DonorDbRepository - Entering GetAll 
+2023-04-05 08:10:18,290 [1] INFO DonorDbRepository - Exiting GetAll
+2023-04-05 08:10:26,540 [1] INFO DonorDbRepository - Entering findByName with value Adrian Groza
+2023-04-05 08:10:26,541 [1] INFO DonorDbRepository - Exiting findByName with value {CharityTeledon.model.Donor Adrian Groza,Aurel Vlaicu 19,0726666123}
+2023-04-05 08:10:26,545 [1] INFO CaseDbRepository - Entering findOne with value 2
+2023-04-05 08:10:26,546 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case Salvati copiii,11501}
+2023-04-05 08:10:26,547 [1] INFO CaseDbRepository - Entering updateSum 
+2023-04-05 08:10:26,567 [1] INFO CaseDbRepository - Case with id 2 updated successfully!
+2023-04-05 08:10:26,567 [1] INFO DonationDbRepository - Entering Add value {CharityTeledon.model.Donation 150,2,3}
+2023-04-05 08:10:26,577 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 150,2,3}
+2023-04-05 08:10:26,577 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:10:26,577 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:10:45,420 [1] INFO DonorDbRepository - Entering findByName with value Marius Preda
+2023-04-05 08:10:45,421 [1] INFO DonorDbRepository - Exiting findByName with value {0}
+2023-04-05 08:10:45,423 [1] INFO DonorDbRepository - Entering Add value {CharityTeledon.model.Donor Marius Preda,Aurel Vlaicu 50,0726666226}
+2023-04-05 08:10:45,444 [1] INFO DonorDbRepository - Succesfully added value {CharityTeledon.model.Donor Marius Preda,Aurel Vlaicu 50,0726666226}
+2023-04-05 08:10:45,444 [1] INFO DonorDbRepository - Entering findByName with value Marius Preda
+2023-04-05 08:10:45,445 [1] INFO DonorDbRepository - Exiting findByName with value {CharityTeledon.model.Donor Marius Preda,Aurel Vlaicu 50,0726666226}
+2023-04-05 08:10:45,445 [1] INFO CaseDbRepository - Entering findOne with value 2
+2023-04-05 08:10:45,446 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case Salvati copiii,11651}
+2023-04-05 08:10:45,447 [1] INFO CaseDbRepository - Entering updateSum 
+2023-04-05 08:10:45,456 [1] INFO CaseDbRepository - Case with id 2 updated successfully!
+2023-04-05 08:10:45,456 [1] INFO DonationDbRepository - Entering Add value {CharityTeledon.model.Donation 150,2,79}
+2023-04-05 08:10:45,463 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 150,2,79}
+2023-04-05 08:10:45,463 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:10:45,463 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:11:03,913 [1] INFO DonorDbRepository - Entering findByName with value Marius Preda
+2023-04-05 08:11:03,914 [1] INFO DonorDbRepository - Exiting findByName with value {CharityTeledon.model.Donor Marius Preda,Aurel Vlaicu 50,0726666226}
+2023-04-05 08:11:03,914 [1] INFO CaseDbRepository - Entering findOne with value 2
+2023-04-05 08:11:03,916 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case Salvati copiii,11801}
+2023-04-05 08:11:03,916 [1] INFO CaseDbRepository - Entering updateSum 
+2023-04-05 08:11:03,936 [1] INFO CaseDbRepository - Case with id 2 updated successfully!
+2023-04-05 08:11:03,936 [1] INFO DonationDbRepository - Entering Add value {CharityTeledon.model.Donation 300,2,79}
+2023-04-05 08:11:03,944 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 300,2,79}
+2023-04-05 08:11:03,945 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:11:03,945 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:15:26,692 [1] INFO CaseDbRepository - Creating CaseDbRepository
+2023-04-05 08:15:26,702 [1] INFO DonationDbRepository - Creating DonationDbRepository 
+2023-04-05 08:15:26,703 [1] INFO DonorDbRepository - Creating DonorDbRepository 
+2023-04-05 08:15:26,703 [1] INFO VolunteerDbRepository - Creating VolunteerDbRepository 
+2023-04-05 08:15:33,817 [1] INFO VolunteerDbRepository - Entering findVolunteerAccount with username sabinamuresan
+2023-04-05 08:15:33,883 [1] INFO VolunteerDbRepository - Exiting findVolunteerAccount with value CharityTeledon.model.Volunteer
+2023-04-05 08:15:33,899 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:15:33,900 [1] INFO CaseDbRepository - Exiting GetAll
+2023-04-05 08:15:39,260 [1] INFO DonorDbRepository - Entering GetAll 
+2023-04-05 08:15:39,261 [1] INFO DonorDbRepository - Exiting GetAll
+2023-04-05 08:16:19,648 [1] INFO DonorDbRepository - Entering findByName with value Anda Stefan
+2023-04-05 08:16:19,650 [1] INFO DonorDbRepository - Exiting findByName with value {0}
+2023-04-05 08:16:19,652 [1] INFO DonorDbRepository - Entering Add value {CharityTeledon.model.Donor Anda Stefan,Paris 5,0731946221}
+2023-04-05 08:16:19,673 [1] INFO DonorDbRepository - Succesfully added value {CharityTeledon.model.Donor Anda Stefan,Paris 5,0731946221}
+2023-04-05 08:16:19,673 [1] INFO DonorDbRepository - Entering findByName with value Anda Stefan
+2023-04-05 08:16:19,673 [1] INFO DonorDbRepository - Exiting findByName with value {CharityTeledon.model.Donor Anda Stefan,Paris 5,0731946221}
+2023-04-05 08:16:19,674 [1] INFO DonorDbRepository - Entering GetAll 
+2023-04-05 08:16:19,674 [1] INFO DonorDbRepository - Exiting GetAll
+2023-04-05 08:16:19,685 [1] INFO CaseDbRepository - Entering findOne with value 3
+2023-04-05 08:16:19,686 [1] INFO CaseDbRepository - Exiting findOne with value {CharityTeledon.model.Case Helpmas,11338}
+2023-04-05 08:16:19,686 [1] INFO CaseDbRepository - Entering updateSum 
+2023-04-05 08:16:19,693 [1] INFO CaseDbRepository - Case with id 3 updated successfully!
+2023-04-05 08:16:19,695 [1] INFO DonationDbRepository - Entering Add value {CharityTeledon.model.Donation 2000,3,80}
+2023-04-05 08:16:19,702 [1] INFO DonationDbRepository - Succesfully added value {CharityTeledon.model.Donation 2000,3,80}
+2023-04-05 08:16:19,702 [1] INFO CaseDbRepository - Entering GetAll 
+2023-04-05 08:16:19,703 [1] INFO CaseDbRepository - Exiting GetAll

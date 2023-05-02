@@ -10,9 +10,9 @@ namespace CharityTeledon.model
     {
         public ID Id { get; set; }
 
-        public Entity(ID Id)
+        /*public Entity(ID Id)
         {
             this.Id = Id;
-        }
+        }*/
     }
 }

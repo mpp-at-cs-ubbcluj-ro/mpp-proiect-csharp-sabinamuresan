@@ -12,7 +12,15 @@ namespace CharityTeledon.model
         public int IdCase { get; set; }
         public int IdDonor { get; set; }
 
-        public Donation(int id, float amount, int IdCase, int IdDonor): base(id)
+        public Donation(int id, float amount, int IdCase, int IdDonor)
+        {
+            this.Id = id;
+            this.Amount = amount;
+            this.IdCase = IdCase;
+            this.IdDonor = IdDonor;
+        }
+        
+        public Donation(float amount, int IdCase, int IdDonor)
         {
             this.Amount = amount;
             this.IdCase = IdCase;

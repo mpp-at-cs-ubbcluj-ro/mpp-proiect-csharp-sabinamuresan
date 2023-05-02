@@ -11,9 +11,16 @@ namespace CharityTeledon.model
         public string CaseName { get; set; } 
         public float Sum { get; set; }
 
-        public Case(int id, string caseName, float sum): base(id)
+        public Case(int id, string caseName, float sum)
         {
+            this.Id = id;
             this.CaseName = caseName;
+            this.Sum = sum;
+        }
+
+        public Case(string name, float sum)
+        {
+            this.CaseName = name;
             this.Sum = sum;
         }
 
